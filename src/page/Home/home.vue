@@ -16,7 +16,8 @@
                   <a
                     @click="See(item.articleLinkUrl)"
                     v-text="item.articleTitle"
-                  ></a>
+                  >
+                  </a>
                 </li>
               </ul>
             </div>
@@ -43,7 +44,9 @@
           <div class="slide_center fl ml20">
             <div class="w550 news bgc_white">
               <h2>
-                <a href=""><strong>分类标签</strong></a>
+                <span href="####" style="cursor: pointer;"
+                  ><strong>分类标签</strong></span
+                >
               </h2>
               <ul>
                 <!-- <li class="center_content" style="background-color:#fe6181;"> -->
@@ -479,9 +482,9 @@ export default {
   box-sizing: border-box;
   margin-right: 5px;
 }
-.newlog.left_content li:nth-child(1) span,
-.newlog.left_content li:nth-child(2) span,
-.newlog.left_content li:nth-child(3) span {
+#newlog li:nth-child(1) span,
+#newlog li:nth-child(2) span,
+#newlog li:nth-child(3) span {
   background-color: orange;
 }
 .side_left ul li {

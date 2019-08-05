@@ -114,9 +114,9 @@ export default {
       searchResults: [],
       timeout: null,
       token: '',
-      columnLinkUrl_topnew: 'http://www.3gbio.com.cn/html/about/news/', // 最新事件
-      columnLinkUrl_newcontent: 'http://www.3gbio.com.cn/html/about/academic/', // 最新研究内容
-      columnLinkUrl_notice: 'http://www.3gbio.com.cn/html/reading/Expert/' // 公告
+      columnLinkUrl_topnew: '../../static/static_page/newlist.html', // 最新事件
+      columnLinkUrl_newcontent: '../../static/static_page/newResearchList.html', // 最新研究内容
+      columnLinkUrl_notice: '../../static/static_page/notice.html' // 公告
     }
   },
   computed: {
