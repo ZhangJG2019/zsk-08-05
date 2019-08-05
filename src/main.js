@@ -6,6 +6,7 @@ import store from './store/'
 import VueLazyload from 'vue-lazyload'
 import infiniteScroll from 'vue-infinite-scroll'
 import VueCookie from 'vue-cookie'
+import VueResource from 'vue-resource'
 import $ from 'jquery'
 import {
   userInfo
@@ -35,8 +36,7 @@ import {
   CheckboxGroup
 } from 'element-ui'
 import {
-  getStore,
-  removeStore
+  getStore
 } from '/utils/storage'
 import VueContentPlaceholders from 'vue-content-placeholders'
 Vue.use(VueContentPlaceholders)
@@ -65,6 +65,7 @@ Vue.prototype.$notify = Notification
 Vue.prototype.$message = Message
 Vue.use(infiniteScroll)
 Vue.use(VueCookie)
+Vue.use(VueResource)
 Vue.use(VueLazyload, {
   // preLoad: 1.3,
   // error: 'dist/error.png',

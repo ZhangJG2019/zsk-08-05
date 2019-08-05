@@ -29,22 +29,22 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/front': {
-        target: 'http://192.168.1.160:8084',
-        // // target: 'http://192.168.1.66:8883',
-        // target: 'http: //47.104.168.172:8084',
+        // target: 'http://192.168.1.160:8089', // 夏哥
+        // target: 'http://192.168.1.158:8089',//江哥
+        // target: 'http://192.168.1.66:8883',//私服
+        // target: 'http://192.168.1.156:8080', //彪哥
+        target: 'http://47.104.168.172:8084', //正式服务器
+        // target: '192.168.1.157:8083', // 测试服务器
         changeOrigin: true,
         pathRewrite: {
-          '^/front': '/' //通过pathRewrite重写地址，将前缀/front转为/
+          '^/front': '/' // 通过pathRewrite重写地址，将前缀/front转为/
         }
-      }
-    },
-
-    proxyTable_bak: {
-      '/front': {
-        target: 'http://localhost:8084/front',
+      },
+      '/apis': {
+        target: '192.168.1.157:8083', // 测试服务器
         changeOrigin: true,
         pathRewrite: {
-          '^/front': '/'
+          '^/apis': '/' // 通过pathRewrite重写地址，将前缀/front转为/
         }
       }
     },

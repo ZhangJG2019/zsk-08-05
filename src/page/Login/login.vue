@@ -22,26 +22,22 @@
             </li>
             <li>
               <div class="input">
-                <!-- <input
+                <input
                   type="password"
                   v-model="ruleForm.userPwd"
                   @keyup.enter="login"
                   placeholder="密码"
-                /> -->
-                <el-input
+                />
+                <!-- <el-input
                   placeholder="请输入密码"
                   type="password"
                   v-model="ruleForm.userPwd"
                   @keyup.enter="login"
                   show-password
-                ></el-input>
+                ></el-input> -->
               </div>
             </li>
-            <!-- <li>
-              <div id="captcha">
-                <p id="wait">正在加载验证码...</p>
-              </div>
-            </li> -->
+
             <li style="text-align: right" class="pr">
               <el-checkbox class="auto-login" v-model="autoLogin"
                 >记住密码</el-checkbox
@@ -210,9 +206,13 @@ export default {
         .catch(res => {
           // eslint-disable-next-line no-debugger
           if (res.response === null) {
-            return this.$message.error('用户或密码错误')
+            this.$message.error('用户不存在')
+            this.logintxt = '登录'
+            return
           } else {
-            return this.$message.error('用户不存在')
+            this.$message.error('用户或密码错误')
+            this.logintxt = '登录'
+            return
           }
         })
     }

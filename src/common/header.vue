@@ -6,10 +6,6 @@
           <div class="nav-logo">
             <h1 @click="changePage(-1)">
               <router-link to="/" title="三济生物官网">三济生物</router-link>
-              <!-- <p class="title">三济生物</p> -->
-              <!-- <a href="/home">
-                <img src="../../static/images/logo.png" alt="" />
-              </a> -->
             </h1>
           </div>
           <div class="right-box">
@@ -26,9 +22,6 @@
                 @keydown.enter.native="handleIconClick"
               >
               </el-autocomplete>
-              <!-- <router-link to="/goods"
-                ><a @click="changePage(2)">全部商品</a></router-link
-              > -->
             </div>
             <div class="nav-aside" ref="aside" :class="{ fixed: st }">
               <div class="user pr">
@@ -39,15 +32,6 @@
                     <ul>
                       <!--头像-->
                       <li class="nav-user-avatar">
-                        <!-- <div>
-                          <span
-                            class="avatar"
-                            :style="{
-                              backgroundImage: 'url(' + userInfo + ')'
-                            }"
-                          >
-                          </span>
-                        </div> -->
                         <p class="name">{{ userInfo.info.username }}</p>
                       </li>
 
@@ -92,13 +76,6 @@
                 <li>
                   <a :class="{ active: choosePage === -2 }">公告</a>
                 </li>
-                <!-- <li v-for="(item, i) in navList" :key="i">
-                  <a
-                    @click="changGoods(i, item)"
-                    :class="{ active: i === choosePage }"
-                    >{{ item.picUrl }}</a
-                  >
-                </li> -->
               </ul>
               <div></div>
             </div>
@@ -112,10 +89,8 @@
 import YButton from '/components/YButton'
 import { mapMutations, mapState } from 'vuex'
 import { getQuickSearch } from '/api/goods'
-// import { loginOut, navList } from '/api/index'
 import { loginOut } from '/api/index'
 import { getStore, removeStore } from '/utils/storage'
-// import store from '../store/'
 import 'element-ui/lib/theme-default/index.css'
 export default {
   data() {
@@ -132,8 +107,7 @@ export default {
       choosePage: -1,
       searchResults: [],
       timeout: null,
-      token: '',
-      navList: []
+      token: ''
     }
   },
   computed: {

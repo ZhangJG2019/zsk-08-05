@@ -21,6 +21,7 @@
     "vue-cropper": "^0.1.7",
     "vue-infinite-scroll": "^2.0.2",
     "vue-lazyload": "^1.2.2",
+    "vue-resource": "^1.5.1",
     "vue-router": "^2.8.1",
     "vuex": "^2.5.0"
   },

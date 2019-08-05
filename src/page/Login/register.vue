@@ -247,7 +247,11 @@ export default {
                 })
               } else {
                 console.log('RES=其他' + res)
-                return this.$message.error(res.message)
+                this.$message.error(res.message)
+                this.ruleForm.verifyCode = ''
+                return this.$router.push({
+                  path: '/register'
+                })
               }
             })
             .catch(res => {

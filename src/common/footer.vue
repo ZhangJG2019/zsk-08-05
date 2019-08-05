@@ -1,38 +1,6 @@
 <template>
   <div class="footer">
     <div class="container">
-      <!-- <div class="copyright">
-        <h4 class="content-c2">
-          Copyright ©2018, jeexjj.cn Co., Ltd. All Rights
-          Reserved.本网站设计内容大部分属锤子科技
-        </h4>
-        <ul class="privacy">
-          <li class="content-c1">
-            <a class="content-c0" @click="open1">法律声明</a>
-          </li>
-          <li class="content-c1">
-            <a class="content-c0" @click="open2">隐私条款</a>
-          </li>
-          <li class="content-c1">
-            <a
-              class="content-c0"
-              target="_blank"
-              href="https://gitee.com/zhanghejie"
-              >开发者中心</a
-            >
-          </li>
-        </ul>
-      </div>
-      <div class="cop">
-        <a
-          class="content-c3"
-          href="http://www.miibeian.gov.cn/"
-          target="_blank"
-        >
-          <span class="content-c3">蜀ICP备16030308号-1</span>
-          <span class="content-c3">蜀ICP证16030308号</span>
-        </a>
-      </div> -->
       <div class="footer">
         <p class="links">
           <a href="http://www.3gbio.com.cn/html/about/intro/">关于公司</a> |
@@ -55,7 +23,7 @@
 <script>
 import YButton from '/components/YButton'
 export default {
-  data () {
+  data() {
     return {}
   },
   methods: {},

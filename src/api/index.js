@@ -11,6 +11,10 @@ export const loginOut = (params) => {
 export const userInfo = (params) => {
   return http.fetchGet('/front/checkLogin', params)
 }
+// 首页数据
+// export const homemsg = (params) => {
+//   return http.fetchGet('/apis/cms/api/getColumnNewList?title=b', params)
+// }
 // 注册账号
 export const regist = (params) => {
   return http.fetchPost('/front/regist', params)
