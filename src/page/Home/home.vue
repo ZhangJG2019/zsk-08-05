@@ -8,13 +8,13 @@
             <!-- 最新事件 -->
             <div class="w326 news mb15" style="width:326px;">
               <h2>
-                <a href="columnLinkUrl"><strong>最新事件</strong></a>
+                <a @click="See(columnLinkUrl)"><strong>最新事件</strong></a>
               </h2>
               <ul class="left_ul left_content">
                 <li v-for="(item, key) in topNews" :key="key">
                   <span>{{ date | formatDate }}</span>
                   <a
-                    v-bind:href="item.articleUrl"
+                    @click="See(item.articleLinkUrl)"
                     v-text="item.articleTitle"
                   ></a>
                 </li>
@@ -23,12 +23,15 @@
             <!-- 最新研究内容 -->
             <div class="w326 news" style="width:326px;margin-top:18px">
               <h2>
-                <a href="columnLinkUrl"> <strong>最新研究内容</strong></a>
+                <a @click="See(columnLinkUrl)"><strong>最新研究内容</strong></a>
               </h2>
               <ul id="newlog" class="left_content">
                 <li v-for="(item, key) in newContent" :key="key">
                   <span v-text="item.id" class="new_content "></span>
-                  <a v-text="item.articleTitle"></a>
+                  <a
+                    @click="See(item.articleLinkUrl)"
+                    v-text="item.articleTitle"
+                  ></a>
                 </li>
               </ul>
             </div>
@@ -117,12 +120,15 @@
             <!-- 公告 -->
             <div class="w286 news">
               <h2>
-                <a href="columnLinkUrl"> <strong>公告</strong></a>
+                <a @click="See(columnLinkUrl)"><strong>公告</strong></a>
               </h2>
               <ul class="right_content left_content">
                 <li v-for="(item, key) in notice" :key="key">
                   <span v-text="item.id"></span>
-                  <a :href="item.articleUrl" v-text="item.articleTitle"></a>
+                  <a
+                    @click="See(item.articleLinkUrl)"
+                    v-text="item.articleTitle"
+                  ></a>
                 </li>
               </ul>
             </div>
@@ -298,6 +304,7 @@ export default {
         // console.log(res.data[0].columnTitle)
         // 把获得好的最新事件 赋予topNews 给成员
         this.topNews = res.data
+        this.columnLinkUrl = res.data[0].columnLinkUrl
       })
     },
     // 最新研究内容
@@ -311,6 +318,7 @@ export default {
       }).then(res => {
         // 把获得好的最新事件 赋予 给NewContent成员
         this.newContent = res.data
+        this.columnLinkUrl = res.data[0].columnLinkUrl
       })
     },
     // 公告
@@ -324,7 +332,11 @@ export default {
       }).then(res => {
         // 把获得好的最新事件 赋予 给notice成员
         this.notice = res.data
+        this.columnLinkUrl = res.data[0].columnLinkUrl
       })
+    },
+    See(e) {
+      window.location = e
     }
   },
   mounted() {
@@ -467,9 +479,9 @@ export default {
   box-sizing: border-box;
   margin-right: 5px;
 }
-#newlog li:nth-child(1) span,
-#newlog li:nth-child(2) span,
-#newlog li:nth-child(3) span {
+.newlog.left_content li:nth-child(1) span,
+.newlog.left_content li:nth-child(2) span,
+.newlog.left_content li:nth-child(3) span {
   background-color: orange;
 }
 .side_left ul li {

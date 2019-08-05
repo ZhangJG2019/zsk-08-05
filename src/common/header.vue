@@ -68,13 +68,19 @@
                   >
                 </li>
                 <li>
-                  <a :class="{ active: choosePage === -2 }">最新事件</a>
+                  <a @click="See(columnLinkUrl_topnew)"
+                    ><strong>最新事件</strong></a
+                  >
                 </li>
                 <li>
-                  <a :class="{ active: choosePage === -2 }">最新研究内容</a>
+                  <a @click="See(columnLinkUrl_newcontent)"
+                    ><strong>最新研究内容</strong></a
+                  >
                 </li>
                 <li>
-                  <a :class="{ active: choosePage === -2 }">公告</a>
+                  <a @click="See(columnLinkUrl_notice)"
+                    ><strong>公告</strong></a
+                  >
                 </li>
               </ul>
               <div></div>
@@ -107,13 +113,19 @@ export default {
       choosePage: -1,
       searchResults: [],
       timeout: null,
-      token: ''
+      token: '',
+      columnLinkUrl_topnew: 'http://www.3gbio.com.cn/html/about/news/', // 最新事件
+      columnLinkUrl_newcontent: 'http://www.3gbio.com.cn/html/about/academic/', // 最新研究内容
+      columnLinkUrl_notice: 'http://www.3gbio.com.cn/html/reading/Expert/' // 公告
     }
   },
   computed: {
     ...mapState(['cartList', 'login', 'receiveInCart', 'showCart', 'userInfo'])
   },
   methods: {
+    See(e) {
+      window.location = e
+    },
     ...mapMutations([
       'ADD_CART',
       'INIT_BUYCART',
