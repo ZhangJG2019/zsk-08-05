@@ -1,71 +1,64 @@
 <template>
-  <div class="accept-container">
-    <div class="go-back" v-show="goBackState" @click="goBack">GoBack</div>
-    <ul>
-      <li v-for="(item, key) in webAddress" :key="key">
-        <a :href="item.link" target="showHere" @click="showIframe">{{
-          item.name
-        }}</a>
-      </li>
-    </ul>
-    <iframe
-      v-show="iframeState"
-      id="show-iframe"
-      frameborder="0"
-      name="showHere"
-      scrolling="auto"
-      src=""
-    ></iframe>
-    <iframe
-      id="dialogFrame"
-      frameborder="0"
-      scrolling="no"
-      style="background-color:transparent; position: absolute; z-index: -1; width: 100%; height: 100%; top: 0;left:0;"
-    ></iframe>
-  </div>
+<div>
+<header-top>
+<span slot="title" class="name">版本更新</span>
+</header-top>
+<div class="h_question">
+<div v-for="(item,index) in questList" :key="index">
+<div class="h_ques" @click="toggle(item)">{{item.title}}
+<span style="float:right;" v-if="item.show"><img src="../images/back.png" alt="" class="s_img"></span>
+<span style="float:right" v-else><img src="../images/left.png" alt="" class="s_img1"></span>
+</div>
+<div class="h_answer" v-show="nval==index&&show">
+{{item.article}}
+</div>
+</div>
+</div>
+</div>
+</div>
 </template>
-
 <script>
+import { get_version } from '@/api/chttp.js'
+import HeaderTop from '@/components/HeaderTop'
+import Vue from 'vue'
+import { Toast } from 'vant'
+Vue.use(Toast)
 export default {
-  name: 'hello',
+  name: 'Version',
   data() {
     return {
-      iframeState: false,
-      goBackState: false,
-      webAddress: [
+      show: false,
+      questList: [
         {
-          name: 'segmentFault',
-          link: 'https://segmentfault.com/a/1190000004502619'
+          title: '2.0.0版本功能介绍',
+          article: '可以实现群聊、发送名片、交换名片、保存到通讯录等功能'
         },
         {
-          name: '博客',
-          link: 'http://vuex.vuejs.org/'
-        },
-        {
-          name: '特效',
-          link: 'http://www.yyyweb.com/377.html'
+          title: '1.0.0版本功能介绍',
+          article: '可以实现群聊、保存到通讯录等功能'
         }
       ]
     }
   },
+  components: {
+    HeaderTop
+  },
   mounted() {
-    const oIframe = document.getElementById('show-iframe')
-    const deviceWidth = document.documentElement.clientWidth
-    const deviceHeight = document.documentElement.clientHeight
-    oIframe.style.width = deviceWidth + 'px'
-    oIframe.style.height = deviceHeight + 'px'
+    this.get_questList()
   },
   methods: {
-    goBack() {
-      this.goBackState = false
-      this.iframeState = false
+    toggle(index) {
+      this.nval = index
+      this.show = !this.show
     },
-    showIframe() {
-      this.goBackState = true
-      this.iframeState = true
+    get_questList() {
+      const params = {
+        type: 1
+      }
+      get_version(params).then(res => {
+        this.questList = res.data.data
+      })
     }
   }
 }
 </script>
-<style scoped>
-</style>
