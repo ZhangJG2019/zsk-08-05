@@ -193,34 +193,35 @@
       </ul>
       <!-- 业务划分区域 start -->
       <ul class=" guide_ul">
-        <!-- <li style="background-color:#35be9b;"> -->
-        <li>
+        <li style="background-color:#35be9b;">
+          <!-- <li> -->
           <router-link to="####">
             <i class="iconfont icon-yonghuguanli"></i>
             <p>知识库用户</p>
           </router-link>
         </li>
-        <!-- <li style="background-color:#8bc255;"> -->
-        <li>
+        <li style="background-color:#8bc255;">
+          <!-- <li> -->
           <router-link to="####">
             <i class="iconfont icon-xiazai"></i>
             <p>下载</p>
           </router-link>
         </li>
-        <!-- <li style="background-color:#56bde3;"> -->
-        <li>
+        <li style="background-color:#56bde3;">
+          <!-- <li> -->
           <router-link to="####">
             <i class="iconfont icon-bangzhu"></i>
             <p>帮助</p>
           </router-link>
         </li>
-        <!-- <li style="background-color:#f78228;"> -->
-        <li>
+        <li style="background-color:#f78228;">
+          <!-- <li> -->
           <!-- <router-link to="/taskhall">
             <i class="iconfont icon-woderenwu"></i>
             <p>任务大厅</p>
           </router-link> -->
           <a href="http://47.105.75.254/index" target="_blank">
+            <!-- <a href="http://47.105.75.254/index"> -->
             <i class="iconfont icon-job"></i>
             <p>任务大厅</p>
           </a>

@@ -340,7 +340,7 @@
     <y-footer></y-footer>
     <!-- iframe弹窗 1-->
     <el-dialog :visible.sync="dialogVisible">
-      <div v-if="showPrise">
+      <div>
         <iframe
           src="http://47.105.75.254/index"
           id="mobsf"
