@@ -49,68 +49,64 @@
                 >
               </h2>
               <ul>
-                <!-- <li class="center_content" style="background-color:#fe6181;"> -->
-                <li class="center_content">
+                <li class="center_content" style="background-color:#fe6181;">
+                  <!-- <li class="center_content"> -->
                   <img src="../../../static/images/jiyin.png" alt="" />
-                  <a href="" class="title">基因</a><br />
-                  <a class="num">123</a>
-                  <!-- <a v-text="total" class="num">123</a> -->
+                  <a href="" class="title">基因</a>
+                  <!-- <a class="num">123</a> -->
+                  <a class="num" v-text="gene_num">123</a>
                 </li>
-                <li class="center_content">
-                  <!-- <li class="center_content" style="background-color:#5fc46d;"> -->
+                <!-- <li class="center_content"> -->
+                <li class="center_content" style="background-color:#5fc46d;">
                   <img src="../../../static/images/xianguanyaowu.png" alt="" />
-                  <a href="" class="title">药物</a><br />
-                  <a class="num">456</a>
-                  <!-- <a v-text="total" class="num">456</a> -->
+                  <a href="" class="title">药物</a>
+                  <!-- <a class="num">456</a> -->
+                  <a class="num" v-text="drug_num">456</a>
                 </li>
-                <!-- <li class="center_content" style="background-color:#6661d5;"> -->
-                <li class="center_content">
+                <li class="center_content" style="background-color:#6661d5;">
+                  <!-- <li class="center_content"> -->
                   <img src="../../../static/images/yaowujiyindui.png" alt="" />
-                  <a href="" class="title">药物基因对</a><br />
-                  <a class="num">789</a>
-                  <!-- <a v-text="total" class="num">789</a> -->
+                  <a href="" class="title">药物基因对</a>
+                  <!-- <a class="num">789</a> -->
+                  <a class="num" v-text="drugGenePair_num">789</a>
                 </li>
-                <!-- <li class="center_content" style="background-color:#01c4c3;"> -->
-                <li class="center_content">
+                <li class="center_content" style="background-color:#01c4c3;">
+                  <!-- <li class="center_content"> -->
                   <img src="../../../static/images/quanweizhinan.png" alt="" />
-                  <a href="" class="title">权威指南</a><br />
-                  <a class="num">987</a>
-                  <!-- <a v-text="total" class="num">987</a> -->
+                  <a href="" class="title">权威指南</a>
+                  <!-- <a class="num">987</a> -->
+                  <a class="num" v-text="authority_num">987</a>
                 </li>
-                <!-- <li class="center_content" style="background-color:#62b6e5;"> -->
-                <li class="center_content">
+                <li class="center_content" style="background-color:#62b6e5;">
+                  <!-- <li class="center_content"> -->
                   <img src="../../../static/images/yaowubiaoqian.png" alt="" />
-                  <a href="" class="title">药物标签</a><br />
-                  <a class="num">654</a>
-                  <!-- <a v-text="total" class="num">654</a> -->
+                  <a href="" class="title">药物标签</a>
+                  <!-- <a class="num">654</a> -->
+                  <a class="num" v-text="drugLabels_num">654</a>
                 </li>
-                <!-- <li class="center_content" style="background-color:#ff6765;"> -->
-                <li class="center_content">
-                  <img
-                    src="../../../static/images/linchuangzhushi.png"
-                    alt=""
-                  />
-                  <a href="" class="title">临床注释</a><br />
-                  <a class="num">321</a>
-                  <!-- <a v-text="total" class="num">321</a> -->
+                <li class="center_content" style="background-color:#ff6765;">
+                  <!-- <li class="center_content"> -->
+                  <img src="../../../static/images/linchuangzhushi.png" />
+                  <a href="" class="title">临床注释</a>
+                  <!-- <a class="num">321</a> -->
+                  <a class="num" v-text="clinicalNotes_num">321</a>
                 </li>
-                <!-- <li class="center_content" style="background-color:#7dc691;"> -->
-                <li class="center_content">
+                <li class="center_content" style="background-color:#7dc691;">
+                  <!-- <li class="center_content"> -->
                   <img
                     src="../../../static/images/linchuangshiyan.png"
-                    alt=""
                     style="width:100px;height:80px"
                   />
-                  <a href="" class="title">临床实验</a><br />
-                  <a class="num">1314</a>
-                  <!-- <a v-text="total" class="num">1314</a> -->
+                  <a href="" class="title">临床实验</a>
+                  <!-- <a class="num">1314</a> -->
+                  <a class="num" v-text="clinicalTrials_num">1314</a>
                 </li>
-                <!-- <li class="center_content" style="background-color:#feab1c;"> -->
-                <li class="center_content">
+                <li class="center_content" style="background-color:#feab1c;">
+                  <!-- <li class="center_content"> -->
                   <img src="../../../static/images/zhuanli.png" alt="" />
-                  <a href="" class="title">专利</a><br />
-                  <a class="num">521</a>
-                  <!-- <a v-text="total" class="num">521</a> -->
+                  <a href="" class="title">专利</a>
+                  <!-- <a class="num">521</a> -->
+                  <a class="num" v-text="patent_num">521</a>
                 </li>
               </ul>
             </div>
@@ -229,7 +225,6 @@
       </ul>
       <!-- 业务划分区域 end -->
     </div>
-
     <!-- 报错提示页 1-->
     <div class="no-info" v-if="error">
       <div class="no-data">
@@ -248,7 +243,6 @@ import mallGoods from '/components/mallGoods'
 import 'element-ui'
 import 'jquery'
 import axios from 'axios'
-
 // 时间补位函数 1
 var padDate = function(value) {
   return value < 10 ? '0' + value : value
@@ -264,7 +258,6 @@ var formatDate = function(value) {
   return year + '-' + month + '-' + day
 }
 // 格式化时间函数 2
-
 export default {
   // 生命周期函数
   created() {
@@ -274,6 +267,16 @@ export default {
   },
   data() {
     return {
+      // 中间八个分类 1
+      gene_num: '123',
+      drug_num: '456',
+      drugGenePair_num: '789',
+      authority_num: '1314',
+      drugLabels_num: '520',
+      clinicalNotes_num: '521',
+      clinicalTrials_num: '999',
+      patent_num: '666',
+      // 中间八个分类 2
       total: '',
       articleTitle: '', // 标题
       articleLinkUrl: '', // 标题链接
@@ -512,7 +515,7 @@ export default {
   box-sizing: border-box;
 }
 .slide_center ul li {
-  width: 270px;
+  width: 268px;
   height: 174px;
   margin: 20px 0 0 0;
   box-sizing: border-box;
@@ -552,7 +555,7 @@ export default {
 .side_left .contents {
   width: 266px;
   height: 72px;
-  margin: 20px 0 0 10px;
+  margin: 20px 10px 0 10px;
 }
 .side_left .phone {
   background-color: #04c891;
@@ -605,7 +608,7 @@ export default {
   margin-top: 20px;
   background-color: #fff;
   border-left: 1px solid #ccc;
-  padding-bottom: 20px;
+  // padding-bottom: 20px;
 }
 .Message {
   background-color: #fff;
