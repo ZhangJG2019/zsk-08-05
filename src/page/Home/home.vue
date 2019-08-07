@@ -40,7 +40,7 @@
         </li>
         <!-- 左侧内容区域  end-->
         <!-- 中间内容区域 start -->
-        <li style="margin-right:10px">
+        <li style="margin-right:10px;background-color:#fff;">
           <div class="slide_center fl ml20">
             <div class="w550 news bgc_white">
               <h2>
@@ -118,7 +118,7 @@
         </li>
         <!-- 中间内容区域 end-->
         <!-- 右侧内容区域 start-->
-        <li class="right">
+        <li class="right" style="background-color:#fff;">
           <div class="side_left ml18">
             <!-- 公告 -->
             <div class="w286 news">
@@ -203,23 +203,27 @@
         <!-- <li style="background-color:#8bc255;"> -->
         <li>
           <router-link to="####">
-            <i class="iconfont icon-xiazai-xianxing"></i>
+            <i class="iconfont icon-xiazai"></i>
             <p>下载</p>
           </router-link>
         </li>
         <!-- <li style="background-color:#56bde3;"> -->
         <li>
           <router-link to="####">
-            <i class="iconfont icon-icon"></i>
+            <i class="iconfont icon-bangzhu"></i>
             <p>帮助</p>
           </router-link>
         </li>
         <!-- <li style="background-color:#f78228;"> -->
         <li>
-          <router-link to="/taskhall">
+          <!-- <router-link to="/taskhall">
             <i class="iconfont icon-woderenwu"></i>
             <p>任务大厅</p>
-          </router-link>
+          </router-link> -->
+          <a href="http://47.105.75.254/index" target="_blank">
+            <i class="iconfont icon-job"></i>
+            <p>任务大厅</p>
+          </a>
         </li>
       </ul>
       <!-- 业务划分区域 end -->
@@ -507,7 +511,7 @@ export default {
   box-sizing: border-box;
 }
 .slide_center ul li {
-  width: 265px;
+  width: 270px;
   height: 174px;
   margin: 20px 0 0 0;
   box-sizing: border-box;

@@ -66,7 +66,6 @@
             align="center"
             sortable
             :default-sort="{ prop: 'date', order: 'descending' }"
-            v-if="(show = false)"
             width="180"
           >
             <i class="el-icon-time"></i>
@@ -223,6 +222,7 @@
           <el-table-column
             prop="contentType"
             label="任务操作内容类型"
+            v-if="(show = false)"
             width="150"
             align="center"
           >
