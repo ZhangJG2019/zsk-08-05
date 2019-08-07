@@ -54,42 +54,42 @@
                   <img src="../../../static/images/jiyin.png" alt="" />
                   <a href="" class="title">基因</a>
                   <!-- <a class="num">123</a> -->
-                  <a class="num" v-text="gene_num">123</a>
+                  <a class="num" v-text="genenum">123</a>
                 </li>
                 <!-- <li class="center_content"> -->
                 <li class="center_content" style="background-color:#5fc46d;">
                   <img src="../../../static/images/xianguanyaowu.png" alt="" />
                   <a href="" class="title">药物</a>
                   <!-- <a class="num">456</a> -->
-                  <a class="num" v-text="drug_num">456</a>
+                  <a class="num" v-text="drugnum">456</a>
                 </li>
                 <li class="center_content" style="background-color:#6661d5;">
                   <!-- <li class="center_content"> -->
                   <img src="../../../static/images/yaowujiyindui.png" alt="" />
                   <a href="" class="title">药物基因对</a>
                   <!-- <a class="num">789</a> -->
-                  <a class="num" v-text="drugGenePair_num">789</a>
+                  <a class="num" v-text="drugGenePairnum">789</a>
                 </li>
                 <li class="center_content" style="background-color:#01c4c3;">
                   <!-- <li class="center_content"> -->
                   <img src="../../../static/images/quanweizhinan.png" alt="" />
                   <a href="" class="title">权威指南</a>
                   <!-- <a class="num">987</a> -->
-                  <a class="num" v-text="authority_num">987</a>
+                  <a class="num" v-text="authoritynum">987</a>
                 </li>
                 <li class="center_content" style="background-color:#62b6e5;">
                   <!-- <li class="center_content"> -->
                   <img src="../../../static/images/yaowubiaoqian.png" alt="" />
                   <a href="" class="title">药物标签</a>
                   <!-- <a class="num">654</a> -->
-                  <a class="num" v-text="drugLabels_num">654</a>
+                  <a class="num" v-text="drugLabelsnum">654</a>
                 </li>
                 <li class="center_content" style="background-color:#ff6765;">
                   <!-- <li class="center_content"> -->
                   <img src="../../../static/images/linchuangzhushi.png" />
                   <a href="" class="title">临床注释</a>
                   <!-- <a class="num">321</a> -->
-                  <a class="num" v-text="clinicalNotes_num">321</a>
+                  <a class="num" v-text="clinicalNotesnum">321</a>
                 </li>
                 <li class="center_content" style="background-color:#7dc691;">
                   <!-- <li class="center_content"> -->
@@ -99,14 +99,14 @@
                   />
                   <a href="" class="title">临床实验</a>
                   <!-- <a class="num">1314</a> -->
-                  <a class="num" v-text="clinicalTrials_num">1314</a>
+                  <a class="num" v-text="clinicalTrialsnum">1314</a>
                 </li>
                 <li class="center_content" style="background-color:#feab1c;">
                   <!-- <li class="center_content"> -->
                   <img src="../../../static/images/zhuanli.png" alt="" />
                   <a href="" class="title">专利</a>
                   <!-- <a class="num">521</a> -->
-                  <a class="num" v-text="patent_num">521</a>
+                  <a class="num" v-text="patentnum">521</a>
                 </li>
               </ul>
             </div>
@@ -264,18 +264,19 @@ export default {
     this.getTopNews()
     this.getNewContent()
     this.getNotice()
+    this.getNum()
   },
   data() {
     return {
       // 中间八个分类 1
-      gene_num: '123',
-      drug_num: '456',
-      drugGenePair_num: '789',
-      authority_num: '1314',
-      drugLabels_num: '520',
-      clinicalNotes_num: '521',
-      clinicalTrials_num: '999',
-      patent_num: '666',
+      genenum: '',
+      drugnum: '',
+      drugGenePairnum: '',
+      authoritynum: '',
+      drugLabelsnum: '',
+      clinicalNotesnum: '',
+      clinicalTrialsnum: '',
+      patentnum: '',
       // 中间八个分类 2
       total: '',
       articleTitle: '', // 标题
@@ -302,6 +303,25 @@ export default {
     }
   },
   methods: {
+    // 获取各分类标签数量
+    getNum() {
+      var url = 'static/data/home_center.json'
+      axios({
+        method: 'get',
+        url: url
+      }).then(res => {
+        // console.log(res)
+        // console.log(res.data[0].genenum)
+        this.genenum = res.data[0].genenum
+        this.drugnum = res.data[0].drugnum
+        this.drugGenePairnum = res.data[0].drugGenePairnum
+        this.authoritynum = res.data[0].authoritynum
+        this.drugLabelsnum = res.data[0].drugLabelsnum
+        this.clinicalNotesnum = res.data[0].clinicalNotesnum
+        this.clinicalTrialsnum = res.data[0].clinicalTrialsnum
+        this.patentnum = res.data[0].patentnum
+      })
+    },
     // 最新事件
     getTopNews() {
       // var topNews = '最新事件'
@@ -346,12 +366,13 @@ export default {
         this.columnLinkUrl = res.data[0].columnLinkUrl
       })
     },
+    // cms页面跳转
     See(e) {
       window.location = e
     }
   },
   mounted() {
-    // 背景添加
+    // 背景添加函数
     function bgc(color, tagName) {
       $(tagName).each(function(i, e) {
         $(e).css('background-color', color[i])
@@ -375,12 +396,10 @@ export default {
       ],
       ' .slide_center ul li'
     )
-
     // 业务划分区域页面跳转 1
     $('.guide_ul li').click(function() {
       $('a', this)[0].click()
     })
-    // 业务划分区域页面跳转 2
   },
   components: {
     YShelf,
